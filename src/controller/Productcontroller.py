@@ -11,7 +11,7 @@ from config.settings import POSSettings
 from src.dtos.CategoryDTO import CategoryDTO
 from src.dtos.ProductDTO import ProductDTO
 from src.gui.tabs.products_ui import Ui_ProductsTab
-from src.services.CategoryService import CategoryService
+from src.services.impl.CategoryServiceImpl import CategoryServiceImpl
 from src.services.impl.ProductServiceImpl import ProductServiceImpl
 from src.utils.FormIcon import add_awesome_left_icon, apply_awesome_icons
 from src.utils.Session import Session
@@ -58,7 +58,7 @@ class ProductController(QWidget, Ui_ProductsTab):
         self.setupUi(self)
 
         self._service = ProductServiceImpl()
-        self._category_service = CategoryService()
+        self._category_service = CategoryServiceImpl()
         self._active_threads: List[tuple] = [] 
 
         self._all_products: List[ProductDTO] = []

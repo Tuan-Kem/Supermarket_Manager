@@ -6,7 +6,7 @@ from PySide6.QtWidgets import QDialog, QMessageBox, QTableWidgetItem
 
 from src.dtos.CategoryDTO import CategoryDTO, CreateCategoryDTO, UpdateCategoryDTO
 from src.gui.add_category_dialog_ui import Ui_CategoryManagerDialog
-from src.services.CategoryService import CategoryService
+from src.services.impl.CategoryServiceImpl import CategoryServiceImpl
 
 
 logger = logging.getLogger(__name__)
@@ -33,7 +33,7 @@ class AddCategoryDialogController(QDialog, Ui_CategoryManagerDialog):
     def __init__(self, parent=None) -> None:
         super().__init__(parent)
         self.setupUi(self)
-        self._service = CategoryService()
+        self._service = CategoryServiceImpl()
         self._active_threads: List[tuple] = []  
 
         self._categories: List[CategoryDTO] = []

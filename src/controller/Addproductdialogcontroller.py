@@ -8,7 +8,7 @@ from PySide6.QtWidgets import QDialog, QMessageBox
 from src.dtos.CategoryDTO import CategoryDTO
 from src.dtos.ProductDTO import CreateProductDTO, ProductDTO, UpdateProductDTO
 from src.gui.add_product_dialog_ui import Ui_AddProductDialog
-from src.services.CategoryService import CategoryService
+from src.services.impl.CategoryServiceImpl import CategoryServiceImpl
 from src.services.impl.ProductServiceImpl import ProductServiceImpl
 
 
@@ -41,7 +41,7 @@ class AddProductDialogController(QDialog, Ui_AddProductDialog):
         self.setupUi(self)
 
         self._product_service = ProductServiceImpl()
-        self._category_service = CategoryService()
+        self._category_service = CategoryServiceImpl()
         self._active_threads: List[tuple] = []
         self._initial = initial
         self.result_product: Optional[ProductDTO] = None
